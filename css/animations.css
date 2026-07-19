@@ -1,0 +1,35 @@
+/* Base state for scroll-reveal elements (GSAP flips these) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+}
+
+.reveal-fade {
+  opacity: 0;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+/* Nav reveal on load */
+.navbar {
+  opacity: 0;
+  transform: translateY(-16px);
+}
+
+.commit-marker.current {
+  animation: pulseDot 2s ease infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 5px var(--accent-dim); }
+  50% { box-shadow: 0 0 0 9px transparent; }
+}
+
+/* Terminal cursor already blinks via .cursor-blink in style.css */
