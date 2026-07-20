@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sourabh Badgaiya — Resume</title>
+    <meta
+      name="description"
+      content="Resume — Sourabh Badgaiya, Full Stack Developer (MERN, Next.js, TypeScript, PostgreSQL, Azure, CI/CD, Playwright)."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --text: #1a1f24;
+        --text-muted: #55606b;
+        --accent: #0f7a4b;
+        --border: #dfe3e7;
+        --bg: #ffffff;
+        --bg-soft: #f6f8f9;
+        --font-body: "Inter", -apple-system, sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg-soft);
+        color: var(--text);
+        font-family: var(--font-body);
+        line-height: 1.55;
+        padding: 40px 20px 80px;
+      }
+
+      .resume-toolbar {
+        max-width: 780px;
+        margin: 0 auto 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        position: relative;
+      }
+      .btn-home {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 8px 20px;
+        border-radius: 999px;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        background: var(--bg-soft);
+        color: var(--text);
+        text-decoration: none;
+        transition:
+          border-color 0.2s ease,
+          color 0.2s ease,
+          background 0.2s ease;
+      }
+      .btn-home:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: #fff;
+      }
+      .btn-download {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 10px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 1px solid var(--accent);
+        background: var(--accent);
+        color: #fff;
+        transition: opacity 0.2s ease;
+      }
+      .btn-download:hover {
+        opacity: 0.92;
+      }
+
+      .print-tip {
+        max-width: 780px;
+        margin: 0 auto 16px;
+        text-align: right;
+        font-size: 0.76rem;
+        color: var(--text-muted);
+      }
+
+      .resume-sheet {
+        max-width: 780px;
+        margin: 0 auto;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 52px 56px;
+        box-shadow: 0 6px 24px rgba(20, 30, 40, 0.06);
+      }
+
+      header.r-head {
+        border-bottom: 1px solid var(--text);
+        padding-bottom: 18px;
+        margin-bottom: 22px;
+        text-align: center;
+      }
+      header.r-head h1 {
+        font-size: 1.7rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      header.r-head .r-role {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-top: 3px;
+      }
+      .r-contact {
+        margin-top: 12px;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 10px;
+      }
+      .r-contact span:not(:last-child)::after {
+        content: "·";
+        margin-left: 10px;
+        color: var(--border);
+      }
+      .r-contact a {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+      .r-contact a:hover {
+        color: var(--accent);
+      }
+
+      .r-contact span:not(:last-child)::after {
+        content: none;
+      }
+
+      .dot-sep {
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--text);
+        margin: 8px 2px;
+        vertical-align: middle;
+      }
+
+      .r-links {
+        margin-top: 8px;
+        font-size: 0.85rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .r-links a {
+        color: #0369a1;
+        text-decoration: none;
+      }
+      .r-links a:hover {
+        text-decoration: underline;
+      }
+      .r-links .r-links-sep {
+        color: var(--border);
+      }
+
+      section.r-section {
+        margin-bottom: 22px;
+      }
+      section.r-section:last-child {
+        margin-bottom: 0;
+      }
+      .r-section h2 {
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 10px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .r-summary {
+        font-size: 0.92rem;
+        color: var(--text-muted);
+      }
+
+      .r-entry {
+        margin-bottom: 14px;
+      }
+      .r-entry:last-child {
+        margin-bottom: 0;
+      }
+      .r-entry-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .r-entry-top h3 {
+        font-size: 0.98rem;
+        font-weight: 700;
+      }
+      .r-entry-date {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .r-entry-sub {
+        font-size: 0.85rem;
+        color: var(--accent);
+        font-weight: 600;
+        margin-top: 1px;
+      }
+      .r-keyterms {
+        font-size: 0.76rem;
+        color: var(--text-muted);
+        font-weight: 400;
+        margin-left: 4px;
+      }
+      .r-entry ul {
+        margin: 8px 0 0 18px;
+      }
+      .r-entry li {
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        margin-bottom: 3px;
+      }
+
+      .r-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        font-size: 0.85rem;
+      }
+      .r-skill-group {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .r-skill-group b {
+        font-weight: 700;
+        min-width: 108px;
+        flex-shrink: 0;
+        font-size: 0.85rem;
+      }
+      .r-skill-group span {
+        color: var(--text-muted);
+      }
+
+      .r-projects .r-entry p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 3px;
+      }
+
+      /* Print styles: this page is already light, so PDF output matches on-screen almost exactly.
+     We just strip the toolbar and page chrome so only the resume sheet prints. */
+      @media print {
+        body {
+          background: #fff;
+          padding: 0;
+        }
+        .resume-toolbar {
+          display: none;
+        }
+        .print-tip {
+          display: none;
+        }
+        .r-keyterms {
+          display: none;
+        }
+        .resume-sheet {
+          box-shadow: none;
+          border: none;
+          border-radius: 0;
+          padding: 0;
+          max-width: 100%;
+        }
+        @page {
+          margin: 16mm 14mm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-toolbar">
+      <a href="index.html" class="btn-home">home</a>
+      <button class="btn-download" onclick="downloadResume()">
+        Download as PDF
+      </button>
+    </div>
+    <p class="print-tip">
+      Tip: in the print dialog, uncheck "Headers and footers" — this keeps the
+      PDF ATS-clean, no stray URL/date/page-number text.
+    </p>
+
+    <div class="resume-sheet">
+      <header class="r-head">
+        <h1>Sourabh Badgaiya</h1>
+        <p class="r-role">Software Engineer | Full Stack Developer</p>
+        <p
+          class="r-role"
+          style="color: var(--text-muted); font-weight: 500; margin-top: 2px"
+        >
+          Python | Django | React.js | Next.js | Node.js | SQL
+        </p>
+        <div class="r-contact">
+          <span>sourabhbadgaiya273@gmail.com</span>
+          <span class="dot-sep"></span>
+          <span>+91-78983-47273</span>
+          <span class="dot-sep"></span>
+          <span>Bhopal, M.P., India </span>
+        </div>
+        <div class="r-links">
+          <a
+            href="https://github.com/sourabhbadgaiya2"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <span class="r-links-sep">⌇</span>
+          <a
+            href="https://www.linkedin.com/in/sourabh-b-b48144169/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn
+          </a>
+          <span class="r-links-sep">⌇</span>
+          <a
+            href="https://sourabhbadgaiya2.github.io/sourabh/"
+            target="_blank"
+            rel="noopener"
+            >Portfolio
+          </a>
+        </div>
+      </header>
+
+      <section class="r-section">
+        <h2>Summary</h2>
+        <p class="r-summary">
+          Software Engineer with 2+ years of experience building full-stack web
+          applications — React.js/Next.js on the frontend, Django REST Framework
+          and Node.js on the backend — with hands-on experience in Docker,
+          CI/CD, and cloud deployment (Azure).
+        </p>
+      </section>
+
+      <section class="r-section">
+        <h2>Experience</h2>
+
+        <div class="r-entry">
+          <div class="r-entry-top">
+            <h3>
+              Full Stack Developer — Kaizen Young Consultants
+              <span class="r-keyterms">REST APIs, CI/CD, Performance</span>
+            </h3>
+            <span class="r-entry-date">Jun 2024 — Present</span>
+          </div>
+          <ul>
+            <li>
+              Developed and maintained 5+ production modules serving 1000+ daily
+              users
+            </li>
+            <li>
+              Integrated RESTful APIs and optimized frontend performance to
+              improve response time
+            </li>
+            <li>
+              Implemented CI/CD pipelines using GitHub Actions for automated
+              testing and deployment
+            </li>
+          </ul>
+        </div>
+
+        <div class="r-entry">
+          <div class="r-entry-top">
+            <h3>
+              Full Stack Developer — Tacoza
+              <span class="r-keyterms">Next.js, DRF, PostgreSQL</span>
+            </h3>
+            <span class="r-entry-date">Client Project</span>
+          </div>
+          <p class="r-entry-sub">Restaurant Management SaaS Platform</p>
+          <ul>
+            <li>
+              Developed responsive web applications using Next.js and Django
+              REST Framework (DRF)
+            </li>
+            <li>
+              Built REST APIs for orders, menu, subscriptions, users, and
+              inventory using PostgreSQL
+            </li>
+            <li>
+              Worked with Docker, Git, Postman, and optimized application
+              performance
+            </li>
+          </ul>
+        </div>
+
+        <div class="r-entry">
+          <div class="r-entry-top">
+            <h3>
+              Frontend Developer — AgenQ
+              <span class="r-keyterms">React.js, Real-time APIs, Docker</span>
+            </h3>
+            <span class="r-entry-date">Canada</span>
+          </div>
+          <p class="r-entry-sub">AI Product Assistant Platform</p>
+          <ul>
+            <li>
+              Developed AI-powered workflow interfaces using React.js and
+              Next.js
+            </li>
+            <li>Integrated REST APIs with real-time communication</li>
+            <li>Improved performance through component optimization</li>
+            <li>
+              Containerized applications using Docker and supported CI/CD
+              deployment workflows
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="r-section r-projects">
+        <h2>Projects</h2>
+
+        <div class="r-entry">
+          <div class="r-entry-top">
+            <h3>Coaching Classes Platform — Full-Stack SaaS</h3>
+            <span class="r-entry-date"
+              ><a href="#" style="color: var(--accent); text-decoration: none"
+                >Live Demo
+                <span style="color: #c0392b; font-size: 0.7rem"
+                  >(add link)</span
+                ></a
+              ></span
+            >
+          </div>
+          <ul>
+            <li>
+              Built a role-based (Admin/Student) coaching platform with Django
+              REST Framework and Next.js — enrollment, payments, attendance,
+              live classes, and auto-graded tests
+            </li>
+            <li>
+              Designed REST API with JWT auth and payment-gated access control;
+              automated reminders via Celery + Redis
+            </li>
+            <li>
+              Dockerized and deployed to Azure App Service with GitHub Actions
+              CI/CD, gated by automated tests
+            </li>
+            <li>
+              Built mobile-first student UI and desktop admin dashboard using
+              Next.js Server Actions and PostgreSQL
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="r-section">
+        <h2>Skills</h2>
+        <div class="r-skills">
+          <div class="r-skill-group">
+            <b>Languages</b><span>Python, JavaScript, TypeScript, SQL</span>
+          </div>
+          <div class="r-skill-group">
+            <b>Frontend</b
+            ><span>React.js, Next.js, Redux Toolkit, Tailwind CSS</span>
+          </div>
+          <div class="r-skill-group">
+            <b>Backend</b><span>Django, DRF, Node.js, Express.js</span>
+          </div>
+          <div class="r-skill-group">
+            <b>Database</b><span>PostgreSQL, MongoDB, Redis</span>
+          </div>
+          <div class="r-skill-group">
+            <b>Tools</b
+            ><span>Git, Docker, GitHub Actions, Postman, Playwright</span>
+          </div>
+          <div class="r-skill-group">
+            <b>Cloud/DevOps</b
+            ><span
+              >Azure App Service, Docker, Celery, Redis, GitHub Actions
+              (CI/CD)</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="r-section">
+        <h2>Education</h2>
+
+        <div class="r-entry">
+          <div class="r-entry-top">
+            <h3>Technocrats Institute of Technology &amp; Science — Bhopal</h3>
+            <span class="r-entry-date">May 2022 — Jun 2024</span>
+          </div>
+          <p
+            class="r-entry-sub"
+            style="color: var(--text-muted); font-weight: 500"
+          >
+            Master of Computer Application (MCA) · CGPA: 6.87
+          </p>
+        </div>
+
+        <div class="r-entry">
+          <div class="r-entry-top">
+            <h3>Makhanlal Chaturvedi National University — Bhopal</h3>
+            <span class="r-entry-date">May 2018 — Jun 2021</span>
+          </div>
+          <p
+            class="r-entry-sub"
+            style="color: var(--text-muted); font-weight: 500"
+          >
+            Bachelor of Computer Application (BCA) · CGPA: 8.02
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function downloadResume() {
+        const originalTitle = document.title;
+        const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+        document.title = "Sourabh_Badgaiya_Full_Stack_Developer_" + today;
+
+        window.print();
+
+        // Restore the tab title after the print dialog closes
+        setTimeout(() => {
+          document.title = originalTitle;
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
