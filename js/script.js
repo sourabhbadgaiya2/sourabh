@@ -4,14 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Fallback: if GSAP failed to load (e.g. offline), reveal content immediately
   if (typeof gsap === "undefined") {
-    document.querySelectorAll(".navbar, .reveal-up, .reveal-fade, .reveal-left, .reveal-scale").forEach((el) => {
-      el.style.opacity = "1";
-      el.style.transform = "none";
-    });
+    document
+      .querySelectorAll(
+        ".navbar, .reveal-up, .reveal-fade, .reveal-left, .reveal-scale",
+      )
+      .forEach((el) => {
+        el.style.opacity = "1";
+        el.style.transform = "none";
+      });
     const nameEl = document.getElementById("typedName");
     const roleEl = document.getElementById("typedRole");
     if (nameEl) nameEl.textContent = "Sourabh Badgaiya";
-    if (roleEl) roleEl.textContent = "Full Stack Developer — MERN · Next.js · TypeScript";
+    if (roleEl)
+      roleEl.textContent = "Full Stack Developer — MERN · Next.js · TypeScript";
   }
 
   // ---------- Loader ----------
@@ -57,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function onScroll() {
     const scrollY = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
 
     navbar?.classList.toggle("scrolled", scrollY > 40);
@@ -99,3 +105,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2200);
   });
 });
+
+// ---------- Project card tap-to-toggle (touch devices, hover doesn't exist there) ----------
+const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+if (isTouch) {
+  document.querySelectorAll(".project-card").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      const alreadyOpen = card.classList.contains("is-open");
+      document
+        .querySelectorAll(".project-card.is-open")
+        .forEach((c) => c.classList.remove("is-open"));
+      if (!alreadyOpen) card.classList.add("is-open");
+    });
+  });
+}
