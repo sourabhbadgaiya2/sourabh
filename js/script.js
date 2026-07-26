@@ -119,3 +119,19 @@ if (isTouch) {
     });
   });
 }
+
+// ---------- Personal projects marquee: duplicate items inside the SAME track for a seamless loop ----------
+const marqueeTrack = document.getElementById("personalProjectsTrack");
+const reduceMotionMarquee = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+if (marqueeTrack && !reduceMotionMarquee) {
+  const originalItems = Array.from(marqueeTrack.children);
+  originalItems.forEach((item) => {
+    const clone = item.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    marqueeTrack.appendChild(clone);
+  });
+}
+
+if (window.lucide) lucide.createIcons();
